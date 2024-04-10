@@ -27,11 +27,7 @@ export class fdformController {
    const fdfielddata= new fd_form_fill_data_interface();
    fdform.id = userformInterface.id;
    fdform.title = userformInterface.title;
-   
-
-
     const uform = await this.userformService.create(fdform);
-    
     if(!uform) {
       return 'error in creating user form'
     }
