@@ -43,14 +43,15 @@ export class fdformController {
             fdformfield.fieldname=attributename;
             fdformfield.fieldtype="string";
             const uformfield = await this.fdfieldservice.create(fdformfield);
-            // const data =await this.fdfieldservice.findOneByformid(userformInterface.id);
-            // if(uformfield) {
-            //     fdfielddata.form_entry_id=i;
-            //     fdfielddata.form_field_id=uformfield.id;
-            //     fdfielddata.value=userformInterface[attributename];
+            const data =await this.fdfieldservice.findOneByformid(userformInterface.id);
+           // console.log("formid: "+data.formid);
+            if(uformfield) {
+                fdfielddata.form_entry_id=i;
+                fdfielddata.form_field_id=data.id;
+                fdfielddata.value=userformInterface[attributename];
 
-            //     const uformfilldata = await this.fdformfillservice.create(fdfielddata);
-            // }
+                const uformfilldata = await this.fdformfillservice.create(fdfielddata);
+            }
         }
         i++;
     }
