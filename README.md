@@ -16,7 +16,7 @@ Make sure you have the following software installed on your machine:
 
 1. Clone the repository:
   ```bash
-   git clone https://github.com/MrLokeshPatidar/nest-assessment.git
+   git clone https://github.com/vimalFLY599/nest-assessment
   ```
 
 2. Navigate to the project directory:
