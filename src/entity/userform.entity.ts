@@ -1,7 +1,10 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, PrimaryColumn } from 'typeorm';
  
-@Entity('userformentity')
-export class userformentity  {
+@Entity('user_form')
+export class user_form  {
+  @PrimaryColumn()
+  id:number;
+
   @Column()
   title: string;
  

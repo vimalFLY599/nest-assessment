@@ -16,7 +16,7 @@ Make sure you have the following software installed on your machine:
 
 1. Clone the repository:
   ```bash
-   git clone https://github.com/vimalFLY599/nest-assessment
+   git clone https://github.com/MrLokeshPatidar/nest-assessment.git
   ```
 
 2. Navigate to the project directory:
@@ -42,6 +42,6 @@ npm run start:dev
 Once the application is running, you can access the API endpoints using tools like Postman or curl.
 
 Endpoints
-* POST /userform: Create a new form entry.
-* GET /userform?form_title="user": Retrieve a specific form entry by user.
-
+* POST /form: Create a new form entry.
+* GET /fill_data?form_title="user": Retrieve a specific form entry by user.
+* POST /fill_data?form_title="user": Create a new form entry.

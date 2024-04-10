@@ -1,22 +1,22 @@
 import { Body, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { user_form } from 'src/entity/userform.entity';
+import { fd_form_fill_data } from 'src/entity/fd_form_fill_data.entity';
 import { Repository } from 'typeorm';
-import{userformInterface} from 'src/Interface/userform.interface';
+import { fd_form_fill_data_interface } from 'src/Interface/fd_form_fill_data.interface';
 
 @Injectable()
-export class userformservice {
+export class fdformsfilldataervice {
   constructor(
-    @InjectRepository(user_form)
-    private userformRepository: Repository<userformInterface>,
+    @InjectRepository(fd_form_fill_data)
+    private userformRepository: Repository<fd_form_fill_data_interface>,
   ) {}
-create(todo: userformInterface): Promise<userformInterface> {
+create(todo: fd_form_fill_data_interface): Promise<fd_form_fill_data_interface> {
   
     return this.userformRepository.save(
       this.userformRepository.create(todo)
     );
   }
-findAll(): Promise<userformInterface[]> {
+findAll(): Promise<fd_form_fill_data_interface[]> {
     return this.userformRepository.find();
   }
 update(id: string, data: any): Promise<any> {
@@ -24,7 +24,9 @@ update(id: string, data: any): Promise<any> {
     .createQueryBuilder()
     .update()
     .set({
-      name: data.name
+      form_entry_id: data.form_entry_id,
+      form_field_id:data.form_field_id,
+      value:data.value
     })
     .where('id = :id', { id })
     .execute()
@@ -33,7 +35,7 @@ delete(id: string): Promise<any> {
     return this.userformRepository
     .createQueryBuilder()
     .delete()
-    .from(user_form)
+    .from(fd_form_fill_data)
     .where('id = :id', { id })
     .execute()
   }
